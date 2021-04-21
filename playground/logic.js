@@ -88,14 +88,14 @@ const announce = (gameObject) => {
 //     setState({vote: target})
 // }
 
-// server will go thru all the player state objects 
-const vote = (gameObject) => {
-    // and update the fglobal votes object
+// take all the player state objects coming in from the clients
+const vote = (clientStates, gameObject) => {
+    // and update the global votes object server-side
     return votes
 }
 
-const checkMajority = () => {
-
+const checkMajority = (gameObject) => {
+    
 }
 
 const lynch = (gameObject, player) => {};
