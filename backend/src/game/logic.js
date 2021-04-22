@@ -4,7 +4,7 @@
 // // day starts
 // // announce results from last night
 // // check if there is a voting majority
-// // if there is, carry out a lynch
+// // if there is, carry out execution
 // // check if the game is over
 // // if not, go to night
 
