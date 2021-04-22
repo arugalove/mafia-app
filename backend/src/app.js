@@ -6,7 +6,6 @@ const io = require('socket.io')(http, {
   origins: ['*'],
 });
 const port = process.env.PORT || 3000;
-const baseURL = 'http://flatiron-mafia.herokuapp.com/'
 const cors = require('cors');
 
 app.use(cors());
@@ -21,8 +20,8 @@ const chat = () => {
     });
   });
 
-  http.listen(baseURL, () => {
-    console.log(`Socket.IO server running at http://flatiron-mafia.herokuapp.com/`);
+  http.listen(port, () => {
+    console.log(`Socket.IO server running at http://localhost:${port}/`);
   });
 
 }
