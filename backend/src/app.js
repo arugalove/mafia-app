@@ -14,68 +14,15 @@ const chat = () => {
 
   app.use(express.static(path.join(__dirname, '/../public')));
 
-  // io.on('connection', (socket) => {
-  //   socket.on('chat message', msg => {
-  //     io.emit('chat message', msg);
-  //   });
-  // });
-
-  // http.listen(port, () => {
-  //   console.log(`Socket.IO server running at http://localhost:${port}/`);
-  // });
-
-  io.sockets.on('connection', function(socket) {
-
-    socket.on('set nickname', function(nickname) {
-
-        user = getUserByNick(nickname);
-
-        if (user) {
-            socket.emit('ready', { id: user.id } );
-        } else {
-            user = registerUser(nickname, socket.id);
-        }
-
-        socket.set('nickname', user.nickname, function() {
-            socket.set('userID', user.id, function() {
-                socket.emit('ready', { id: user.id } );
-            });
-        });
-    });
-
-    socket.on('update visible users', function(users) {
-        for (var i in users) {
-            socket.join(users[i]);
-        }
-    });
-
-    socket.on('msg', function(msg) {
-        socket.get('nickname', function(err, nickname) {
-            var user = users[nickname];
-
-            if (user) {
-                socket.broadcast.to(user.id).emit('chat update', { nickname: user.nickname, text: msg });
-            }
-        });
+  io.on('connection', (socket) => {
+    socket.on('chat message', msg => {
+      io.emit('chat message', msg);
     });
   });
 
-  function getUserByNick(nickname) {
-      return users[nickname];
-  }
-
-  function registerUser(nickname, socketID) {
-      if (users[nickname] == undefined) {
-          var userId = Object.keys(users).length + 100;
-          users[nickname] = {
-              id: userId,
-              nickname: nickname,
-              socketId: socketID
-          };
-      }
-
-      return users[nickname];
-  }
+  http.listen(port, () => {
+    console.log(`Socket.IO server running at http://localhost:${port}/`);
+  });
 
 }
 
