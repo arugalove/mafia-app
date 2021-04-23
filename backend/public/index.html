@@ -12,8 +12,6 @@
       #messages { list-style-type: none; margin: 0; padding: 0; }
       #messages > li { background: #FFFFFF; padding: 0.5rem 1rem; }
 
-      div.chatbox { padding: 0.5rem; background: #FFFFFF; height: 8rem; overflow-y: auto; }
-
       div.title { height:18px; width:100%; background:#000080; color:#FFF; position: fixed; }
       img.title { float:left; }
       p.title { margin:2px 0 0 1px; float:left; font-family:Tahoma; font-weight:bold; font-size:11px; }
@@ -27,12 +25,10 @@
       <button>X</button>
       <button>?</button>
     </div>
-    <div class="chatbox">
-        <ul id="messages"></ul>
-      <form id="form" action="">
-        <input id="input" autocomplete="off" /><button>Send</button>
-      </form>
-    </div>
+    <ul id="messages"></ul>
+    <form id="form" action="">
+      <input id="input" autocomplete="off" /><button>Send</button>
+    </form>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" 
     integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" 
     crossorigin="anonymous"></script>
