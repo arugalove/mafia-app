@@ -1,16 +1,39 @@
 {
-  "name": "backend",
-  "version": "0.0.0",
-  "private": true,
+  "name": "hangman",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
   "scripts": {
-    "start": "node ./bin/www"
+    "build": "tsc",
+    "clean": "rimraf dist/",
+    "start": "node dist/app.js",
+    "lint": "run-s lint:prettier lint:eslint",
+    "lint:eslint": "eslint src/",
+    "lint:prettier": "prettier --write src/**/*",
+    "prebuild": "run-s typecheck clean",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
+    "cors": "^2.8.5",
     "express": "~4.16.1",
-    "http-errors": "~1.6.3",
-    "jade": "~1.11.0",
-    "morgan": "~1.9.1"
+    "socket.io": "^4.0.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.22",
+    "@typescript-eslint/eslint-plugin": "^4.4.1",
+    "eslint": "^7.23.0",
+    "eslint-config-airbnb-typescript": "^12.3.1",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.20.3",
+    "eslint-plugin-react-hooks": "^4.0.8",
+    "jest": "^26.6.3",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.2.1",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.2.3"
   }
 }
