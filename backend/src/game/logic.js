@@ -41,31 +41,18 @@
 // // }
 
 // // initializes a gameObject 
-// const startGame = (players) => {
 
-//     const getPlayerNamesByFaction = (players, faction) => {
-//         playerNames = (players.filter(player => {
-//             player.faction === faction
-//         }).map(player => player.username));
-//         return playerNames;
-//     }
+// const startGame = (players) => {
 
 //     return (
 //         {
-//             gameState: {
-//                 global: {
-//                     errorMessage: '',
-//                     isGameOver: false,
-//                     aliveVillage: getPlayerNamesByFaction(players, 'village'),
-//                     aliveMafia: getPlayerNamesByFaction(players, 'mafia'),
-//                     deadPpl: [],
-//                     gamePhase: null,
-//                     announcements: '', // results of night actions and mafia kill
-//                     votes: null, // i.e. { Pancho: 'Lefty', Lefty: 'no lynch' ... }
-//                     actions: null
-//                 },
-//                 players: players
-//             }
+//             errorMessage: '',
+//             isGameOver: false,
+//             gamePhase: null,
+//             announcements: '', 
+//             votes: null, 
+//             actions: null,
+//             players: players
 //         }
 //     )
 // }
