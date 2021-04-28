@@ -79,6 +79,7 @@ describe("startGame", () => {
         const gameState = startGame(players);
         expect(gameState.winner).toBe(null);
         expect(gameState.errorMessage).toBe('');
+        expect(gameState.isGameOver).toBe(false)
         expect(gameState.gamePhase).toBe(null);
         expect(gameState.announcements).toBe('');
         expect(gameState.votes).toBe(null);
