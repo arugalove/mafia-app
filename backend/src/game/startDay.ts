@@ -1,4 +1,5 @@
-export const startDay = (gameState) => {
-    // call announce function
-    return { ...gameState, gamePhase: "Day" }
+import { GamePhase, GameState } from './types'
+
+export const startDay = (gameState: GameState): GameState => {
+    return { ...gameState, gamePhase: GamePhase.Day }
 }

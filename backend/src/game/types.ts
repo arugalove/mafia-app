@@ -1,4 +1,6 @@
 export type GameState = {
+  id: number,
+  isPlaying: boolean,
   winner: Faction | null,
   errorMessage: string,
   gamePhase: GamePhase | null,

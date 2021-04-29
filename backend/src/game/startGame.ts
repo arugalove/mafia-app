@@ -1,14 +1,5 @@
-export const startGame = (players) => {
-    return (
-        {
-            winner: null,
-            errorMessage: '',
-            isGameOver: false,
-            gamePhase: null,
-            announcements: '', 
-            votes: null, 
-            actions: null,
-            players: players
-        }
-    )
+import { GameState } from './types'
+
+export const startGame = (gameState: GameState): GameState => {
+    return { ...gameState, isPlaying: true }
 }
