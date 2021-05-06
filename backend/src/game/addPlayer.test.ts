@@ -1,6 +1,18 @@
-import { GameState, Player } from './types'
+import { addPlayer } from "./addPlayer";
+import { mockGameState, mockPlayer, mockPlayers } from "./mocks"
 
-export const addPlayer = (gameState: GameState, player: Player): GameState => {
-    if (gameState.isPlaying) return gameState;
-    return { ...gameState, players: [...gameState.players, player] }
-}
+describe("addPlayer", () => {
+    it("takes in a game state and a player and returns a new game state with the player added", () => {
+        const gameState = mockGameState;
+        const players = mockPlayers;
+        const newPlayer = mockPlayer;
+        const newGameState = { 
+            ...mockGameState, 
+            players: [
+                ...players,
+                newPlayer
+            ]
+        }
+        expect(addPlayer(gameState, newPlayer)).toBe(newGameState)
+    });
+})

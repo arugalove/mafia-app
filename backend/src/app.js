@@ -16,7 +16,8 @@ const chat = () => {
 
   io.on('connection', (socket) => {
     socket.on('chat message', msg => {
-      io.emit('chat message', msg);
+      io.emit('chat message', msg); 
+      // as app grows, easier to set constant type def -- enum smth
     });
   });
 
