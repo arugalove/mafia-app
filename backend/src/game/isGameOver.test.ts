@@ -1,6 +1,13 @@
-import { isGameOver } from './isGameOver';
+import { checkWinCondition, isGameOver } from './isGameOver';
 import { mockGameState } from './mocks';
 import { Faction } from './types';
+
+describe("checkWinCondition", () => {
+    it("returns the current game state if no win condition has been met", () => {
+        const gameState = mockGameState;
+        expect(checkWinCondition(gameState)).toBe(gameState);
+    })
+})
 
 describe("isGameOver", () => {
     it("returns false if the game has not yet ended", () => {

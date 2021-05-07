@@ -19,7 +19,5 @@ export const checkWinCondition = (gameState: GameState): GameState  => {
 }
 
 export const isGameOver = (gameState: GameState): boolean => {
-
-    if (checkWinCondition(gameState) !== null) return true;
-    return false;
+    return (checkWinCondition(gameState).winner === null ? false : true);
 }
