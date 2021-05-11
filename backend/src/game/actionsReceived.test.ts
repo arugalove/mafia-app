@@ -7,9 +7,7 @@ describe("actionsReceived", () => {
         expect(actionsReceived(gameState)).toBe(false)
     });
     it("returns true if all actions have been received", () => {
-        const gameState = {
-            ...mockGameState, actions: mockActions
-        };
+        const gameState = { ...mockGameState, actions: mockActions };
         expect(actionsReceived(gameState)).toBe(true)
     });
 })

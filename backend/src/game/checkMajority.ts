@@ -20,8 +20,9 @@ export const tally = (votes: (number | null)[]): Map<number, number> => {
 export const checkMajority = (gameState: GameState): boolean => {
     const numAlive = gameState.players.filter(player => player.alive === true).length;
     const majority = Math.ceil(numAlive / 2);
-    const checkMajority = tally(votes(gameState)).forEach(candidate => {
-        if (candidate >= majority) return true
+    let checkMajority: boolean = false;
+    tally(votes(gameState)).forEach(candidate => {
+        if (candidate >= majority) checkMajority = true;
     })
-    return false;
+    return checkMajority
 }

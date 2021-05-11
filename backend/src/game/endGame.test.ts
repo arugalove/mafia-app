@@ -2,7 +2,7 @@ import { mockGameState } from './mocks';
 import { endGame } from './endGame';
 import { Faction, GameState } from './types';
 
-describe("startGame", () => {
+describe("endGame", () => {
     it("ends the game if the Mafia have won", () => {
         const gameState: GameState = {
             ...mockGameState, winner: Faction.Mafia
