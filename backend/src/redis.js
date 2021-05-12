@@ -9,12 +9,18 @@
  * much like a REST PUT request.
  */
 const redis = require("redis");
+const { promisify } = require("util");
 const client = redis.createClient();
 
-export const set = (gameState) => {
-    return client.set(gameState.id, JSON.stringify(gameState))
+const clientGet = promisify(client.get).bind(client);
+const clientSet = promisify(client.set).bind(client);
+
+export const createKey = (id) => `gameState_${id}`;
+
+export const set = async (gameState) => {
+    return await clientSet(createKey(gameState.id), JSON.stringify(gameState))
 }
 
-export const get = (gameState) => {
-    return client.get(gameState.id)
+export const get = async (id) => {
+    return await clientGet(createKey(id))
 }
