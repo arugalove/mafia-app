@@ -10,6 +10,7 @@ const io = require('socket.io')(http, {
 });
 
 const { MESSAGE_CHAT } = require("./constants");
+const logger = require("./logger");
 
 app.use(express.static(path.join(__dirname, '/../public')));
 
@@ -18,10 +19,11 @@ const PORT = process.env.PORT || 3000;
 
 io.on('connection', (socket) => {
     socket.on(MESSAGE_CHAT, message => {
+        logger.info(`${MESSAGE_CHAT}: ${message}`);
         io.emit(MESSAGE_CHAT, message)
     });
 });
 
 http.listen(PORT, () => {
-    console.log(`Socket.IO server running at http://localhost:${PORT}/`);
+    logger.info(`Socket.IO server running at http://localhost:${PORT}/`);
 });
