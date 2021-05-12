@@ -5,7 +5,7 @@ export type GameState = {
   errorMessage: string,
   gamePhase: GamePhase | null,
   announcements: string[], 
-  actions: { [target: number]: Action[] },
+  actions: { [target: string]: Action[] },
   players: Player[]
 }
   

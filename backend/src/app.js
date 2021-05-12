@@ -10,24 +10,24 @@ const cors = require('cors');
 
 app.use(cors());
 
-const chat = () => {
+app.use(express.static(path.join(__dirname, '/../public')));
 
-  app.use(express.static(path.join(__dirname, '/../public')));
-
-  io.on('connection', (socket) => {
-    socket.on('chat message', msg => {
-      io.emit('chat message', msg); 
-      // as app grows, easier to set constant type def -- enum smth
-    });
+io.on('connection', (socket) => {
+  socket.on('username', username => {
+    console.log(username); 
   });
 
-  http.listen(port, () => {
-    console.log(`Socket.IO server running at http://localhost:${port}/`);
+  socket.on('chat message', message => {
+    io.emit('chat message', message)
   });
+  
+});
 
-}
+http.listen(port, () => {
+  console.log(`Socket.IO server running at http://localhost:${port}/`);
+});
 
-chat();
+
 
 // i'm doing a bad thing
 
