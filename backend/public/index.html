@@ -1,60 +1,51 @@
+
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>Socket.IO chat</title>
     <style>
-      body { margin: 0; padding-bottom: 3rem; background:#C0C0C0; border-width:1px; border-color:#FFFFFF #808080 #808080 #FFFFFF; border-style:solid; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
-   
+        body { margin: 0; padding-bottom: 3rem; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
 
-      #form { padding: 0.25rem; position: fixed; bottom: 0; left: 0; right: 0; display: flex; height: 3rem; box-sizing: border-box; backdrop-filter: blur(10px); }
-      #input { flex-grow: 1; margin: 0.25rem; }
+        #form { background: rgba(0, 0, 0, 0.15); padding: 0.25rem; position: fixed; bottom: 0; left: 0; right: 0; display: flex; height: 3rem; box-sizing: border-box; backdrop-filter: blur(10px); }
+        #input { border: none; padding: 0 1rem; flex-grow: 1; border-radius: 2rem; margin: 0.25rem; }
+        #input:focus { outline: none; }
+        #form > button { background: #333; border: none; padding: 0 1rem; margin: 0.25rem; border-radius: 3px; outline: none; color: #fff; }
 
-      #messages { list-style-type: none; margin: 0; padding: 0; margin-top: 1rem; }
-      #messages > li { background: #FFFFFF; padding: 0.5rem 1rem; }
-
-      div.title { height:18px; width:100%; background:#000080; color:#FFF; position: fixed; }
-      img.title { float:left; }
-      p.title { margin:2px 0 0 1px; float:left; font-family:Tahoma; font-weight:bold; font-size:11px; }
-      .title button { height: 100%; background: none; padding: 0 12px; border: 3px solid transparent; box-shadow: none; float:right; width:14px; height:13.5px; border-width:1px; border-color:#FFFFFF #808080 #808080 #FFFFFF; padding:0; font-size:9px; font-weight:bold; font-family:Tahoma; text-align:center; focus:none; }
+        #messages { list-style-type: none; margin: 0; padding: 0; }
+        #messages > li { padding: 0.5rem 1rem; }
+        #messages > li:nth-child(odd) { background: #efefef; }
     </style>
-  </head>
-  <body>
-    <div class="title">
-      <img src="https://coursereport-production.imgix.net/uploads/school/logo/8/original/flatironschool.png?w=200&h=200" width="18" height="18" class="title" />
-      <p class="title">Flatiron Instant Messenger</p>
-      <button>X</button>
-      <button>?</button>
-    </div>
-    <ul id="messages"></ul>
-    <form id="form" action="">
-      <input id="input" autocomplete="off" /><button>Send</button>
-    </form>
-    <!-- <script src="/socket.io/socket.io.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" 
-    integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" 
-    crossorigin="anonymous"></script> -->
+</head>
+<body>
+<ul id="messages"></ul>
+<form id="form" action="">
+    <label for="input">Chat Message</label>
+    <input id="input" autocomplete="off" /><button>Send</button>
+</form>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"
+        integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA=="
+        crossorigin="anonymous"></script>
 
-    <!-- <script>
-      const socket = io('http://flatiron-mafia.herokuapp.com');
-      // const socket = io('http://localhost:3000/');
-      const messages = document.getElementById('messages');
-      const form = document.getElementById('form');
-      const input = document.getElementById('input');
+<script>
+    const socket = io('http://localhost:3000');
+    const messages = document.getElementById('messages');
+    const form = document.getElementById('form');
+    const input = document.getElementById('input');
 
-      form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', function(e) {
         e.preventDefault();
         if (input.value) {
-          socket.emit('chat message', input.value);
-          input.value = '';
+            socket.emit('chat message', input.value);
+            input.value = '';
         }
-      });
+    });
 
-      socket.on('chat message', function(msg) {
+    socket.on('chat message', function(msg) {
         const item = document.createElement('li');
         item.textContent = msg;
         messages.appendChild(item);
         window.scrollTo(0, document.body.scrollHeight);
-      });
-    </script> -->
-  </body>
+    });
+</script>
+</body>
 </html>

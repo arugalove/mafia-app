@@ -1,29 +1,29 @@
 export type GameState = {
-  id: number,
-  isPlaying: boolean,
-  winner: Faction | null,
-  errorMessage: string,
-  gamePhase: GamePhase | null,
-  announcements: string[], 
-  actions: { [target: string]: Action[] },
-  players: Player[]
-}
-  
+  id: number;
+  isPlaying: boolean;
+  winner: Faction | null;
+  errorMessage: string;
+  gamePhase: GamePhase | null;
+  announcements: string[];
+  actions: { [target: string]: Action[] };
+  players: Player[];
+};
+
 export type Player = {
-  id: number,
-  username: string,
-  faction: Faction,
-  alive: boolean,
-  role: Role,
-  vote: number | null, // player.id or null
-  action: ActionType | null
-  announcements: string[]
-}
+  id: number;
+  username: string;
+  faction: Faction;
+  alive: boolean;
+  role: Role;
+  vote: number | null; // player.id or null
+  action: ActionType | null;
+  announcements: string[];
+};
 
 export type Action = {
-  playerId: number,
-  actionType: ActionType
-}
+  playerId: number;
+  actionType: ActionType;
+};
 
 // actions = {
 //   // key is the id of the TARGET player
@@ -48,7 +48,7 @@ export enum Role {
 export enum ActionType {
   "KILL",
   "INSPECT",
-  "PROTECT"
+  "PROTECT",
 }
 
 export enum GamePhase {

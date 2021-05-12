@@ -1,6 +1,6 @@
-import { GamePhase, GameState } from './types'
+import { GamePhase, GameState } from "./types";
 
 export const startDay = (gameState: GameState): GameState => {
-    // do I need to push announcements to clients here?
-    return { ...gameState, gamePhase: GamePhase.Day }
-}
+  // do I need to push announcements to clients here?
+  return { ...gameState, gamePhase: GamePhase.Day };
+};

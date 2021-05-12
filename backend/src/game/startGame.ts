@@ -1,5 +1,5 @@
-import { GameState } from './types'
+import { GameState } from "./types";
 
 export const startGame = (gameState: GameState): GameState => {
-    return { ...gameState, isPlaying: true }
-}
+  return { ...gameState, isPlaying: true };
+};
