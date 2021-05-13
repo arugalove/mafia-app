@@ -14,6 +14,6 @@ export const AppPure = ({ gameState, currentPlayerId }: AppPureProps): React.Rea
     //     {JSON.stringify(gameState, null, 2)}
     //     {currentPlayerId}
     // // </pre>
-    <JoinPage playerId={currentPlayerId} />
-    // <ChatWindow />
+    // <JoinPage playerId={currentPlayerId} />
+    <ChatWindow />
 )

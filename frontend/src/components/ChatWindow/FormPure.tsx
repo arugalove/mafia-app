@@ -8,12 +8,7 @@ export type FormPureProps = {
 
 export const FormPure = ({ onSubmit, onMessageChange, message }: FormPureProps) => (
     <form onSubmit={onSubmit}>
-        <p>
-            <label htmlFor="chat-input">Message</label>
             <input id="chat-input" type="text" value={message} onChange={onMessageChange} />
-        </p>
-        <p>
             <button type="submit">Send</button>
-        </p>
     </form>
 );

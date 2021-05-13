@@ -13,9 +13,6 @@ export const Form = () => {
         onSubmit={(e) => {
             e.preventDefault();
             socket.emit(MESSAGE_CHAT, message);
-            console.log("does it hit the first call?")
-            socket.emit(MESSAGE_USER_JOINED, message); // testing
-            console.log('got past the call');
             setMessage("");
         }}
     />
