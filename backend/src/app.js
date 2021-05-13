@@ -21,7 +21,7 @@ app.use('/', createProxyMiddleware({
     target: "http://localhost:3000",
     changeOrigin: true
 }));
-app.use(express.static(path.join(__dirname, '/../public')));
+app.use(express.static(path.join(__dirname, '/../build')));
 
 // Constants
 const PORT = process.env.PORT || 8000;
