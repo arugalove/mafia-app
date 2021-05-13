@@ -21,7 +21,7 @@ const { Faction, Role } = require('./game/types');
 //     changeOrigin: true
 // }));
 
-app.use(express.static(path.join(__dirname, '/../build')));
+app.use(express.static(path.join(__dirname, '/../public')));
 
 // Constants
 const PORT = process.env.PORT || 8000;
