@@ -1,7 +1,6 @@
 import { Socket } from "socket.io";
 
 import logger from "../logger";
-import { get, set } from "../redis";
 import { GAME_ID, MESSAGE_CONNECTED } from '../constants';
 import { createGame } from "../game/createGame";
 
