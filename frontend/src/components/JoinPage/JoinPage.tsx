@@ -18,11 +18,11 @@ export const JoinPage = ( { playerId }: JoinPageProps ) => {
         onUsernameChange={(e: ChangeEvent<HTMLInputElement> ) => setUsername(e.target.value)}
         onSubmit={(e) => {
             e.preventDefault();
-            const player = {
-                id: playerId,
-                username: username,
-                };
-            socket.emit(MESSAGE_USER_JOINED, player);
+            // const player = {
+            //     id: playerId,
+            //     username: username,
+            // //     };
+            // socket.emit(MESSAGE_USER_JOINED, username);
             setUsername("");
         }}
     />

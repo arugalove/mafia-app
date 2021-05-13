@@ -7,12 +7,13 @@ import { createGame } from "../game/createGame";
 
 export const connected = (io: Socket) => {
     (async () => {
-        let gameState = await get(GAME_ID);
+        // let gameState = await get(GAME_ID);
+        let gameState = createGame();
 
-        if (!gameState) {
-            gameState = createGame();
-            await set(gameState);
-        }
+        // if (!gameState) {
+        //     gameState = createGame();
+        //     await set(gameState);
+        // }
 
         logger.info(`${MESSAGE_CONNECTED} ${gameState}`);
         io.emit(MESSAGE_CONNECTED, gameState);

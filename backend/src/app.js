@@ -32,24 +32,23 @@ io.on(MESSAGE_CONNECTED, (socket) => {
 
     // When the user joins a game, add their player id and username 
     // to the game state, then broadcast it to all the clients
-    socket.on(MESSAGE_USER_JOINED, player => {
-        (async () => {
-            logger.info(`${MESSAGE_USER_JOINED}: ${player}`);
-            let gameState = await get(GAME_ID);
-            player = { // need to add validation for player id and username
-                ...player,
-                faction: Faction.Village,
-                alive: true,
-                role: Role.Villager,
-                vote: null,
-                action: null,
-                announcements: []
-            };
-            gameState = addPlayer(gameState, player);
-            await set(gameState);
-            io.emit(MESSAGE_GAME_UPDATE, gameState)
-        })();
-    });
+    // socket.on(MESSAGE_USER_JOINED, player => {
+    //     (async () => {
+    //         logger.info(`${MESSAGE_USER_JOINED}: ${username}`);
+    //         let gameState = await get(GAME_ID);
+    //         player = { // need to add validation for player id and username
+    //             ...player,
+    //             faction: Faction.Village,
+    //             alive: true,
+    //             role: Role.Villager,
+    //             vote: null,
+    //             action: null,
+    //             announcements: []
+    //         };
+    //         gameState = addPlayer(gameState, player);
+    //         await set(gameState);
+    //         io.emit(MESSAGE_GAME_UPDATE, gameState)
+    // });
 
     // When the user sends a chat message, broadcast it to all the clients
     socket.on(MESSAGE_CHAT, message => {

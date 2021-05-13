@@ -9,7 +9,8 @@ import { AppPure } from "./AppPure";
 export const App = () => {
     const [currentPlayerId, setCurrentPlayerId] = useState<string>("");
     const [gameState, setGameState] = useState<GameState | null>(null);
-    const [usernameSelected, setUsernameSelected] = useState<boolean>(false);
+    // const [username, setUsername] = useState<string>("");
+    // const [currentMessages, setCurrentMessages] = useState<string[]>([]);
 
     // When this component mounts, try to retrieve a player ID from localStorage.
     // Create one if one does not exist.
@@ -23,6 +24,19 @@ export const App = () => {
 
         setCurrentPlayerId(playerId as string);
     }, []);
+
+    // When this component mounts, try to retrieve a message log from localStorage.
+    // Create one if one does not exist.
+    // useEffect(() => {
+    //     let chatMessages = localStorage.getItem("mafiaMessages");
+
+    //     if (!chatMessages) {
+    //         chatMessages = currentMessages;
+    //         localStorage.setItem("mafiaMessages", chatMessages);
+    //     }
+
+    //     setCurrentPlayerId(playerId as string);
+    // }, []);
 
     // When this component mounts, start listening for updates to the game
     // state. The user gets sent the state once on initial connection and then

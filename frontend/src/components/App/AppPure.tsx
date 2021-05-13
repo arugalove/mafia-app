@@ -7,6 +7,7 @@ import { GameState } from "./types";
 export type AppPureProps = {
     gameState: GameState | null;
     currentPlayerId: string;
+    // username: string;
 }
 
 export const AppPure = ({ gameState, currentPlayerId }: AppPureProps): React.ReactElement => (
