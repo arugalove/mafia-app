@@ -16,10 +16,11 @@ const { connected } = require("./messageHandlers/connected");
 const { addPlayer } = require('./game/addPlayer');
 const { Faction, Role } = require('./game/types');
 
-app.use('/', createProxyMiddleware({
-    target: "http://localhost:3000",
-    changeOrigin: true
-}));
+// app.use('/', createProxyMiddleware({
+//     target: "http://localhost:3000",
+//     changeOrigin: true
+// }));
+
 app.use(express.static(path.join(__dirname, '/../build')));
 
 // Constants
