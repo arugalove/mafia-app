@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { ChatWindow } from "./components/ChatWindow";
+import { App } from "./components/App";
 
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <ChatWindow />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );

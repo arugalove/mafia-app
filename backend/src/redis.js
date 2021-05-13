@@ -22,5 +22,6 @@ export const set = async (gameState) => {
 }
 
 export const get = async (id) => {
-    return await clientGet(createKey(id))
+    const gameState = await clientGet(createKey(id));
+    return gameState ? JSON.parse(gameState) : null;
 }
