@@ -7,7 +7,10 @@ export type ChatPureProps = {
 export const MessagesPure = ({ messages }: ChatPureProps): React.ReactElement => (
     <ol id="messages">
         {messages.map((msg) => (
-            <li key={`${msg} ${Date.now()}`}>{msg}</li>
+            <li key={`${msg} ${Date.now()}`}>
+                <p>{msg}</p>
+                <p><b>Steven</b> <i>{`${Date.now()}`}</i></p>
+            </li>
         ))}
     </ol>
 )
