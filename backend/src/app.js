@@ -14,7 +14,6 @@ const { MESSAGE_CHAT, MESSAGE_CONNECTED, MESSAGE_USER_JOINED, GAME_ID, MESSAGE_G
 const logger = require("./logger");
 const { connected } = require("./messageHandlers/connected");
 const { addPlayer } = require('./game/addPlayer');
-const { set, get } = require('./redis');
 const { Faction, Role } = require('./game/types');
 
 app.use('/', createProxyMiddleware({
