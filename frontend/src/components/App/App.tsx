@@ -3,12 +3,13 @@ import { v4 as uuidv4 } from 'uuid';
 
 import { socket } from '../../socketClient';
 import { GameState } from './types';
-import { MESSAGE_CONNECTED, MESSAGE_GAME_UPDATE} from "../../constants";
+import { MESSAGE_CONNECTED, MESSAGE_GAME_UPDATE } from "../../constants";
 import { AppPure } from "./AppPure";
 
 export const App = () => {
     const [currentPlayerId, setCurrentPlayerId] = useState<string>("");
     const [gameState, setGameState] = useState<GameState | null>(null);
+    const [usernameSelected, setUsernameSelected] = useState<boolean>(false);
 
     // When this component mounts, try to retrieve a player ID from localStorage.
     // Create one if one does not exist.
