@@ -8,8 +8,8 @@ import './ChatWindow.css';
 
 export const ChatWindow = () => (
     <>
-       <Messages />
-       <Form />
+        <Messages />
+        <Form />
     </>
 )
 
